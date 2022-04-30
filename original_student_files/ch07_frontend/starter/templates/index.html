@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        li { list-style-type: none; }
+    </style>
+    <script src="/static/jquery.js" type="text/javascript"></script>
+</head>
+<body>
+<div>
+    <form id="schoolSearch">
+        <label for="school_name">School: </label>
+        <input type="text" id="school_name" autofocus placeholder="Partial name of school">
+        <input type="submit" value="Search">
+    </form>
+</div>
+<div id="results"></div>
+<script type="text/javascript">
+
+    var url = '/school/';
+
+    $('#schoolSearch').submit(function(evt){
+        evt.preventDefault();
+        var school_name = $('#school_name').val(), options;
+
+        if (school_name.length > 0) {
+            options = {url: url + school_name, dataType: 'json'};
+
+            $.ajax(options).then(
+                function (results) {
+                    var resultsDiv = $('#results').empty();
+                    if($.isEmptyObject(results.schools))
+                        results.schools = ['not found'];
+                    resultsDiv.append('<h1>Results for ' + results.school_name + ':</h1>');
+                    resultsDiv.append('<ul>');
+                    results.schools.forEach(function(sch){
+                        resultsDiv.append('<li>');
+                        resultsDiv.append(sch);
+                        resultsDiv.append('</li>');
+                    });
+                    resultsDiv.append('</ul>');
+                },
+                function(results) {
+                    $('#results').append('Error processing results.  See console.');
+                    console.log(results)
+                }
+            );
+        }
+    });
+
+</script>
+</body>
+</html>
