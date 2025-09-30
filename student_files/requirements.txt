@@ -1,25 +1,35 @@
+# Start PyCharm, select "Open" and browse to the student_files folder.  
+# PyCharm will prompt to create a virtual environment and run this file 
+# automatically installing any dependencies.
+# 
+# If not using PyCharm, manually execute this series of commands in a command window (assumes Windows OS):
+#      cd <student_files directory>
+#      python -m venv venv
+#      venv\Scripts\activate   
+#      pip install -r requirements.txt
+
 arrow
-beautifulsoup4>=4.12
-black>=23.11
-click>=8.1
-flake8>=6.1
-flask>=3.0
-flask-sqlalchemy>=3.1
-flask-marshmallow>=0.15.0
+beautifulsoup4
+black
+click
+flake8
+flask
+flask-sqlalchemy
+flask-marshmallow
 folium
-ipython>=8.18
-jupyter>=1.0
-marshmallow>=3.20
-marshmallow-sqlalchemy>=0.29
-matplotlib>=3.8
-mypy>=1.7
-numpy>=1.26
-pandas>=2.1
+ipython
+jupyter
+marshmallow
+marshmallow-sqlalchemy
+matplotlib
+mypy
+numpy
+pandas
 poetry
-prettytable>=3.9
+prettytable
 pyarrow
 pygeoip
-requests>=2.31
+requests
 scikit-learn
 seaborn
-sqlalchemy>=2.0
+sqlalchemy
